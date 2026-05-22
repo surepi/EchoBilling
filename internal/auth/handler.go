@@ -13,21 +13,23 @@ import (
 
 // Handler 认证处理器
 type Handler struct {
-	pool      *pgxpool.Pool
-	rdb       *redis.Client
-	jwtSecret string
-	jwtExpiry time.Duration
-	store     *app.SettingsStore
+	pool        *pgxpool.Pool
+	rdb         *redis.Client
+	jwtSecret   string
+	jwtExpiry   time.Duration
+	frontendURL string
+	store       *app.SettingsStore
 }
 
 // NewHandler 创建新的认证处理器
 func NewHandler(pool *pgxpool.Pool, rdb *redis.Client, cfg *app.Config, store *app.SettingsStore) *Handler {
 	return &Handler{
-		pool:      pool,
-		rdb:       rdb,
-		jwtSecret: cfg.JWTSecret,
-		jwtExpiry: cfg.JWTExpiry,
-		store:     store,
+		pool:        pool,
+		rdb:         rdb,
+		jwtSecret:   cfg.JWTSecret,
+		jwtExpiry:   cfg.JWTExpiry,
+		frontendURL: cfg.FrontendURL,
+		store:       store,
 	}
 }
 

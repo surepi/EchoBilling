@@ -29,6 +29,8 @@ const CheckoutSuccess = lazy(() => import('./pages/public/CheckoutSuccess'))
 const CheckoutCancel = lazy(() => import('./pages/public/CheckoutCancel'))
 const Login = lazy(() => import('./pages/auth/Login'))
 const Register = lazy(() => import('./pages/auth/Register'))
+const ForgotPassword = lazy(() => import('./pages/auth/ForgotPassword'))
+const ResetPassword = lazy(() => import('./pages/auth/ResetPassword'))
 
 // --- Lazy-loaded: Portal pages ---
 const Dashboard = lazy(() => import('./pages/portal/Dashboard'))
@@ -128,6 +130,8 @@ export default function App() {
             <Route path="/vps/:slug" element={<ProductDetail />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/checkout/success" element={<CheckoutSuccess />} />
             <Route path="/checkout/cancel" element={<CheckoutCancel />} />
           </Route>

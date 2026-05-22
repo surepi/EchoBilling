@@ -15,6 +15,10 @@ func RegisterRoutes(rg *gin.RouterGroup, h *Handler, authMiddleware gin.HandlerF
 	rg.POST("/2fa/verify", h.Verify2FA)
 	rg.POST("/2fa/email/send", h.Send2FAEmail)
 
+	// 密码重置（公开）
+	rg.POST("/password/forgot", h.ForgotPassword)
+	rg.POST("/password/reset", h.ResetPassword)
+
 	// 需要认证的路由
 	rg.GET("/me", authMiddleware, h.Me)
 }
